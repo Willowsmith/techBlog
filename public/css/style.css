@@ -1,0 +1,56 @@
+body {
+    background-color: antiquewhite;
+}
+
+header {
+    background-image: url("../images/header.jpg");
+    height: 300px;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    border-bottom: 5px dotted black;
+    /* background-color: aqua; */
+    /* z-index: 3; */
+}
+
+.card {
+    border-bottom: black solid 2px;
+    border-top: black solid 2px;
+}
+
+.link {
+    text-decoration: none;
+    color: rgb(110, 108, 108);
+}
+
+header ul {
+    /* background-color: aliceblue; */
+    list-style-type: none;
+    width: 100%;
+    margin: 0
+}
+
+header a {
+    text-decoration: none;
+    color:black;
+    margin: 5px;
+    border: black 1px solid; 
+    border-radius: 5px;
+    padding: 0 4px;
+    background-color: rgb(250, 231, 199);
+    
+}
+
+header a:hover {
+    background-color: aliceblue;
+    color: black;
+}
+
+main {
+    position: relative
+}
+
+.author {
+    text-align: right;
+    margin-right: 5px;
+}
