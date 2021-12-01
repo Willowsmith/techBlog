@@ -1,6 +1,6 @@
 const express = require('express');
 const sequelize = require("./config/connection.js")
-const session = require("express-session"); //Sets up those cookies wheeeee
+const session = require("express-session"); 
 const exphbs = require('express-handlebars');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
@@ -8,15 +8,12 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const hbs = exphbs.create({});
 
-
-const { Blog,User,Comment } = require('./models'); //***add created models
+ 
 const routes = require("./controllers");
 
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
-app.use(express.static("public"));
+
+
 
 
 
@@ -32,9 +29,12 @@ app.use(session({
      })
   }))
 
-
+const hbs = exphbs.create({});
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static("public"));
 
 
 app.use(routes)

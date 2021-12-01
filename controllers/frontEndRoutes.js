@@ -54,7 +54,7 @@ router.get("/comments/:id", async(req,res)=>{
       }
 })
 
-router.get("/login",(req,res)=>{
+router.get("/signin",(req,res)=>{
     res.render("signin")
 })
 

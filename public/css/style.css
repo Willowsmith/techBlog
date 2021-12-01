@@ -3,7 +3,7 @@ body {
 }
 
 header {
-    background-image: url("../images/header.jpg");
+    background:rgb(68, 6, 211);
     height: 300px;
     position: relative;
     background-size: cover;
