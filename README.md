@@ -7,7 +7,7 @@
 -I learned about TDD, express, and node.
 
 ## Installation
-There are no steps required to install this project, simply launch the website in your preferred web browser and select the generate password button. You can locate the website at: [Website:](https://github.com/Willowsmith/teamProfile)
+There are no steps required to install this project, simply launch the website in your preferred web browser and select the generate password button. You can locate the website at: [Website:](https://my-techblog.herokuapp.com/)
 
 ## Usage
 Launch site via heroku
