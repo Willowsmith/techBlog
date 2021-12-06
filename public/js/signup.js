@@ -3,7 +3,7 @@ const signupForm = document.querySelector("#signup-form");
 signupForm.addEventListener("submit",(e)=>{
     e.preventDefault();
     const userObj={
-        username:document.querySelector("#username").value,
+        name:document.querySelector("#username").value,
         email:document.querySelector("#email").value,
         password:document.querySelector("#password").value,
     }
@@ -15,7 +15,7 @@ signupForm.addEventListener("submit",(e)=>{
         }
     }).then(res=>{
         if(res.ok){
-           location.href = "/login"
+           location.href = "/profile"
         } else {
             alert("Something went wrong")
         }
