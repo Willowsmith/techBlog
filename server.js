@@ -13,10 +13,6 @@ const PORT = process.env.PORT || 3000;
 const routes = require("./controllers");
 
 
-
-
-
-
 app.use(session({
     secret: process.env.SESSION_SECRET, 
     resave: false,

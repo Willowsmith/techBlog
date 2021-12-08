@@ -3,9 +3,8 @@ const signupForm = document.querySelector("#signup-form");
 signupForm.addEventListener("submit",(e)=>{
     e.preventDefault();
     const userObj={
-        name:document.querySelector("#username").value,
-        email:document.querySelector("#email").value,
-        password:document.querySelector("#password").value,
+        name:document.querySelector("#signupusername").value,
+        password:document.querySelector("#signuppassword").value,
     }
     fetch("/api/users/signup",{
         method:"POST",
@@ -15,7 +14,7 @@ signupForm.addEventListener("submit",(e)=>{
         }
     }).then(res=>{
         if(res.ok){
-           location.href = "/profile"
+           location.href = "/dashboard"
         } else {
             alert("Something went wrong")
         }

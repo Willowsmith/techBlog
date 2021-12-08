@@ -1,5 +1,5 @@
 const loginForm = document.getElementById("login");
-const signupForm = document.getElementById("signup");
+
 
 loginForm.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -22,27 +22,27 @@ loginForm.addEventListener("submit", async (e) => {
   }
 });
 
-signupForm.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const signupEmail = document.getElementById("signupemail").value;
-  const signupUsername = document.getElementById("signupusername").value;
-  const signupPassword = document.getElementById("signuppassword").value;
+// signupForm.addEventListener("submit", async (e) => {
+//   e.preventDefault();
+//   const signupEmail = document.getElementById("signupemail").value;
+//   const signupUsername = document.getElementById("signupusername").value;
+//   const signupPassword = document.getElementById("signuppassword").value;
 
-  if (signupEmail && signupPassword && signupUsername) {
-    const resp = await fetch("/api/users", {
-      method: "POST",
-      body: JSON.stringify({
-        email: signupEmail,
-        password: signupPassword,
-        name: signupUsername,
-      }),
-      headers: { "Content-Type": "application/json" },
-    });
+//   if (signupEmail && signupPassword && signupUsername) {
+//     const resp = await fetch("/api/users", {
+//       method: "POST",
+//       body: JSON.stringify({
+//         email: signupEmail,
+//         password: signupPassword,
+//         name: signupUsername,
+//       }),
+//       headers: { "Content-Type": "application/json" },
+//     });
 
-    if (resp.ok) {
-      location.href = "/profile";
-    } else {
-      alert("User already exists?");
-    }
-  }
-});
+//     if (resp.ok) {
+//       location.href = "/profile";
+//     } else {
+//       alert("User already exists?");
+//     }
+//   }
+// });

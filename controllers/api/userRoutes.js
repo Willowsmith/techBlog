@@ -55,25 +55,23 @@ router.post("/login", (req, res) => {
 });
 
 router.post("/signup", (req, res) => {
-  req.session.destroy();
   User.create({
     name: req.body.name,
     password: req.body.password,
-    email: req.body.email,
-  })
-    .then((newUser) => {
-      res.json(newUser);
-    })
+  }).then((newUser) => {
+    //res.json(newUser);
     req.session.save(() => {
-        req.session.user_id = newUser.id;
-        req.session.logged_in = true;
-        
-        res.json({ user: userData, message: 'You are now logged in!' });
-      })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json({ message: "an error occured", err: err });
-    });
+      req.session.user = newUser;
+      req.session.user_id = newUser.id;
+      req.session.logged_in = true;
+
+      res.json({ user: newUser, message: "You are now logged in!" });
+    })
+  })    
+  .catch((err) => {
+    console.log(err);
+    res.status(500).json({ message: "an error occured", err: err });
+  });
 });
 
 router.post("/logout", (req, res) => {
