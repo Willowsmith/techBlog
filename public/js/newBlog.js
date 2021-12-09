@@ -14,7 +14,7 @@ newBlogForm.addEventListener("submit",(e)=>{
         }
     }).then(res=>{
         if(res.ok){
-           location.href = "/profile"
+           location.href = "/dashboard"
         } else {
             alert("trumpet sound")
         }

@@ -21,21 +21,21 @@ router.get("/", (req, res) => {
 router.post("/login", (req, res) => {
   User.findOne({
     where: {
-      email: req.body.email,
+      name: req.body.username,
     },
   })
     .then((foundUser) => {
       if (!foundUser) {
         req.session.destroy();
-        res.status(401).json({ message: "incorrect email or password" });
+        res.status(401).json({ message: "incorrect username or password" });
       } else {
-        if (bcrypt.compareSync(req.body.password, foundUser.password)) {
+        if (foundUser.checkPassword(req.body.password)) {
           req.session.user = {
             name: foundUser.name,
             email: foundUser.email,
             id: foundUser.id,
           };
-          res.json(foundUser);
+          // res.json(foundUser);
         } else {
           res.status(401).json({ message: "incorrect email or password" });
           req.session.destroy();
@@ -44,7 +44,7 @@ router.post("/login", (req, res) => {
           req.session.user_id = foundUser.id;
           req.session.logged_in = true;
 
-          res.json({ user: userData, message: "You are now logged in!" });
+          res.json({ user: foundUser, message: "You are now logged in!" });
         });
       }
     })
@@ -75,7 +75,8 @@ router.post("/signup", (req, res) => {
 });
 
 router.post("/logout", (req, res) => {
-  if (req.session.logged_in) {
+  console.log("ouch logged out!")
+  if (req.session.user) {
     req.session.destroy(() => {
       res.status(204).end();
     });

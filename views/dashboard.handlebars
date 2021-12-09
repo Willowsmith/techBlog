@@ -1,5 +1,5 @@
-<h1>Welcome back, {{username}}</h1>
-{{#each Blogs}}
+<h1>Welcome back, {{user}}</h1>
+{{#each blogs}}
     <section class="card">
         <a class="link" href="/blogs/{{id}}"><h2>{{name}}</h2></a>
             <div class="card-body">
@@ -9,12 +9,4 @@
     <br>
 {{/each}}
 <br><br>
-<section>
-    <form id="newBlog-form">
-        <input type="text" id="name" placeholder="name"><br>
-        <textarea name="description" id="description" cols="100" rows="10"></textarea><br>
-        <button>New Blog!</button>
-    </form>
-</section>
-
-<script src="/js/newBlog.js"></script>
+<button>New Blog!</button>

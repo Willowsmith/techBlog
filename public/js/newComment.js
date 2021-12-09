@@ -6,7 +6,6 @@ newCommentForm.addEventListener("submit",(e)=>{
         window.location.toString().split('/').length - 1
       ];
     const userObj={
-        name:document.querySelector("#name").value,
         description:document.querySelector("#description").value,
         blogid: id
     }
@@ -18,26 +17,10 @@ newCommentForm.addEventListener("submit",(e)=>{
         }
     }).then(res=>{
         if(res.ok){
-            location.href = "/profile"
-            alert("all good")
+            location.href = "/blogs/" + id;
         } else {
             alert("An Error Occurred")
         }
     })
 })
 
-newAccountant.addEventListener ("submit", (e) =>{
-
-
-if (!accountant) {
-    fetch("/api/manatees", {
-        method: "POST"
-    })
-} else {
-    fetch("/api/manatees", {
-        method: "PUT"
-    })
-}
-
-
-});

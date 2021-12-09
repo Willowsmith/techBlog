@@ -1,0 +1,13 @@
+<section class="blog">
+    <div class="blog-details">
+        <form id="updateBlog-form">
+            <input type="hidden" id="blogId" value={{changeBlog.id}}>
+        <input type="text" id="name" value={{changeBlog.name}}><br>
+        <textarea name="description" id="description" cols="100" rows="10">{{changeBlog.description}}</textarea><br>
+        <button id="update">Update Blog</button>
+        <button data-id={{changeBlog.id}}>Delete Blog</button>
+    </form>
+    </div>
+</section>
+
+<script src="/js/updateBlog.js"></script>

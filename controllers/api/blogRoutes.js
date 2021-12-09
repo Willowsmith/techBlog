@@ -47,9 +47,11 @@ router.post('/', async (req, res) => {
     };
 });
 
+
 // update blog by `id` value
 router.put('/:id', async (req, res) => {
   try {
+    console.log(req.body)
     const blogData = await Blog.update(req.body, {
       where: {
         id: req.params.id,
